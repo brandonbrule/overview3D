@@ -24,7 +24,7 @@ public class MouseLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
 
-        if (xRotation >= 0f && xRotation <= 13f)
+        if (xRotation >= 0f && xRotation <= 22f)
         {
 
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
