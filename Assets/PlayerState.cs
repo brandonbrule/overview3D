@@ -18,9 +18,27 @@ public class PlayerState : MonoBehaviour
     void Update()
     {
 
-        float x = Input.GetAxis("Horizontal");
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            m_Animator.SetBool("is_Walking", true);
+        }
 
-        Debug.Log(x);
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            m_Animator.SetBool("is_Walking", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            m_Animator.SetBool("is_Walking", true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            m_Animator.SetBool("is_Walking", false);
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.W))
         {
