@@ -17,28 +17,27 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
-
-    public Rigidbody rb; //and again, whatever you want to call it
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
+    bool canJump;
 
     // Update is called once per frame
     void Update()
     {
 
-        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-       // Debug.Log(isGrounded);
-       /*
-        if(isGrounded && velocity.y < 0)
+        // Debug.Log(isGrounded);
+        /*
+         if(isGrounded && velocity.y < 0)
+         {
+
+         }
+         */
+
+        if (isGrounded)
         {
-            //velocity.y = -2f;
+            Debug.Log("isnt Grounded");
+            canJump = false;
         }
-        */
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -47,10 +46,21 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump"))
+
+
+
+        if (!canJump)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            if (Input.GetButtonDown("Jump"))
+            {
+                Debug.Log(canJump);
+                canJump = true;
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
         }
+
+
+
 
         velocity.y += gravity * Time.deltaTime;
 
