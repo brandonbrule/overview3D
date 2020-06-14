@@ -23,13 +23,14 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-
-        if (xRotation >= 0f && xRotation <= 22f)
+        /*
+        if (xRotation >= 6f && xRotation <= 14f)
         {
 
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             
         }
+        */
 
         playerBody.Rotate(Vector3.up * mouseX);
     }

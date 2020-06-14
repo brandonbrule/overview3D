@@ -18,18 +18,27 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public Rigidbody rb; //and again, whatever you want to call it
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+
     // Update is called once per frame
     void Update()
     {
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        Debug.Log(isGrounded);
-
+       // Debug.Log(isGrounded);
+       /*
         if(isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            //velocity.y = -2f;
         }
+        */
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -38,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButtonDown("Jump"))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
