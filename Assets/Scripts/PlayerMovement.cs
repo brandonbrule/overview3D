@@ -19,11 +19,6 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool canJump;
 
-    void Start()
-    {
-        //controller = GetComponent<CharacterController>();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+       
 
         Vector3 move = transform.right * x + transform.forward * z;
 
@@ -63,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 canJump = true;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+                
             }
         }
 

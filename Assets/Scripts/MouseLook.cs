@@ -6,7 +6,7 @@ public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     private float leftRightSensitivity = 100f;
-    private float topDownSensitivity = 15f;
+    private float topDownSensitivity = 5f;
     public Transform playerBody;
     float xRotation = 0f;
 
@@ -26,7 +26,7 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        if (xRotation >= 2f && xRotation <= 21f)
+        if (xRotation >= 12f && xRotation <= 21f)
         {
 
             Debug.Log(xRotation);
