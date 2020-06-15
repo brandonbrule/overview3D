@@ -24,24 +24,22 @@ public class PlayerState : MonoBehaviour
 
         // Left
         if(x > 0f){
-            Debug.Log("x > 0");
+            //m_Animator.SetBool("Walking_LeftRight", true);
         }
 
         // Right
         if(x < 0f){
-            Debug.Log("x < 0");
+            //m_Animator.SetBool("Walking_LeftRight", false);
         }
 
         // Up
         if(z < 0f){
-            Debug.Log("Up");
-            m_Animator.SetBool("Walking_Y", true);
+            m_Animator.SetBool("Walking_UpDown", true);
         }
 
         // Down
         if(z > 0f){
-            Debug.Log("Down");
-            m_Animator.SetBool("Walking_Y", false);
+            m_Animator.SetBool("Walking_UpDown", false);
         }
 
 

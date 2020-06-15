@@ -25,10 +25,10 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = controller.isGrounded;
 
-
         if (isGrounded)
         {
             canJump = false;
+            
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-           
             speed = running;
         }
 
@@ -55,12 +54,11 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 canJump = true;
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-                
+                Debug.Log("canJumpNow");
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
         }
-
 
 
 
