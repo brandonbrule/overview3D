@@ -29,7 +29,7 @@ public class MouseLook : MonoBehaviour
         if (xRotation >= -50f && xRotation <= 28f)
         {
 
-            Debug.Log(xRotation);
+           // Debug.Log(xRotation);
 
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             

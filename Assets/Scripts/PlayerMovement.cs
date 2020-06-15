@@ -23,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
         isGrounded = controller.isGrounded;
 
         if (isGrounded)
@@ -30,11 +35,6 @@ public class PlayerMovement : MonoBehaviour
             canJump = false;
             
         }
-
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
 
@@ -54,8 +54,6 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 canJump = true;
-
-                Debug.Log("canJumpNow");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
         }
