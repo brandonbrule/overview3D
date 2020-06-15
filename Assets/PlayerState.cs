@@ -18,51 +18,40 @@ public class PlayerState : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            m_Animator.SetBool("is_Walking", true);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+
+        // Left
+        if(x > 0f){
+            Debug.Log("x > 0");
         }
 
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            m_Animator.SetBool("is_Walking", false);
+        // Right
+        if(x < 0f){
+            Debug.Log("x < 0");
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            m_Animator.SetBool("is_Walking", true);
-        }
-
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            m_Animator.SetBool("is_Walking", false);
-        }
-
-
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            m_Animator.SetBool("Walking_Y", false);
-            m_Animator.SetBool("is_Walking", true);
-        }
-
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            m_Animator.SetBool("Walking_Y", false);
-            m_Animator.SetBool("is_Walking", false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
+        // Up
+        if(z < 0f){
+            Debug.Log("Up");
             m_Animator.SetBool("Walking_Y", true);
-            m_Animator.SetBool("is_Walking", true);
         }
 
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            m_Animator.SetBool("Walking_Y", true);
+        // Down
+        if(z > 0f){
+            Debug.Log("Down");
+            m_Animator.SetBool("Walking_Y", false);
+        }
+
+
+        // Is Moving In Any Direction
+        if(x != 0 || z != 0){
+            m_Animator.SetBool("is_Walking", true);
+        } else {
             m_Animator.SetBool("is_Walking", false);
         }
+
 
     }
 }
