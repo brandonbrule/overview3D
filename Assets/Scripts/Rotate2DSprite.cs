@@ -16,6 +16,6 @@ public class Rotate2DSprite : MonoBehaviour
          Debug.Log(Camera.main.transform.position);
 
         Vector3 targetVector = this.transform.position - Camera.main.transform.position;
-        transform.rotation = Quaternion.LookRotation(targetVector, Camera.main.transform.rotation * Vector3.up);
+        transform.rotation = Quaternion.LookRotation(targetVector);
     }
 }
