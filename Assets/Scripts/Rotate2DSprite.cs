@@ -13,7 +13,6 @@ public class Rotate2DSprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         Debug.Log(Camera.main.transform.position);
 
         Vector3 targetVector = this.transform.position - Camera.main.transform.position;
         transform.rotation = Quaternion.LookRotation(targetVector);

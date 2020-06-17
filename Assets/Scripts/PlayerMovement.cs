@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float walking = 11f;
     private float running = 21f;
     public float gravity = -9.81f;
+    public AudioSource walkingAudio;
 
     public float jumpHeight = 3f;
 
@@ -18,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     bool canJump;
+
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +40,13 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = false;
             
+        }
+
+        // Is Walking
+        if(x != 0 || z != 0){
+            
+        } else {
+            walkingAudio.Play();
         }
 
         controller.Move(move * speed * Time.deltaTime);
